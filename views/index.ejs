@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,maximum-scale=1.0,minimum-scale=1.0">
+<title><%= title %></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <header>
+    	<h1><%= title %></h1>
+    	<ul class="type" id="type">
+    		<li data-type="dot">点图</li>
+    		<li data-type="column" class="selected">柱状图</li>
+    	</ul>
+        <!-- <audio src="" controls></audio> -->
+    	<div class="controls">
+            音量： <input type="range" id="volume" min="0" max="100" value="60">
+            <br>
+            暂停：<input type="button" value="pause" id="pause">
+            开始：<input type="button" value="start" id="start">
+        </div>
+    </header>
+
+    <div class="progress-bar" id="progress-bar">
+        <div class="bar" id="bar"></div>
+    </div>
+    <div class="left" id="wrapper">
+    	<ul id="list">
+    		<% music.forEach(function(name,index){ %>
+    			<li title="<%= name %>"><em><%= index+1 %></em>.&nbsp;&nbsp;<%= name %></li>
+    		<% }) %>
+    	</ul>
+    </div>
+    <div class="right" id="box"></div>
+    <canvas id="waterMark" width="170" height="100" style="position: absolute;top:300px;display: none;"></canvas>
+</body>
+<script src="javascripts/MusicVisualizer.js"></script>
+<script src="javascripts/Music.js"></script>
+<script src="javascripts/index.js"></script>
+
+</html>
